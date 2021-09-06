@@ -30,7 +30,7 @@ function inArray(arr, el) {
 	var count = 0;
 
 	while ( count < arr.length ) {
-		if ( arr[count] == el ) {
+		if ( arr[count] === el ) {
 			return true;
 		}
 		
@@ -50,8 +50,35 @@ function getRndInteger(min, max) {
  * PROGRAMMA PRINCIPALE
  */
 
+do {
+	var livello = parseInt(prompt("Inserisci il livello: 0,1,2"));
+} while(livello != 0 && livello != 1 && livello != 2);
+// 0: false && true && true = false
+// 3: true && true && true = true
+
+var numeroCelle; // 100, 80, 50
+
+// if (livello == 0) {
+// 	numeroCelle = 100;
+// } else if (livello == 1) {
+// 	numeroCelle = 80;
+// } else if (livello == 2) {
+// 	numeroCelle = 50;
+// }
+
+switch(livello) {
+	case 0:
+		numeroCelle = 100;
+		break;
+	case 1:
+		numeroCelle = 80;
+		break;
+	case 2:
+		numeroCelle = 50;
+		break;
+}
+
 // variabili di base
-var numeroCelle = 100; // 100, 80, 50
 var nBombe = 16;
 var possibilita = numeroCelle - nBombe;
 
@@ -79,7 +106,7 @@ var numeriValidi = [];
 
 document.getElementById("campo").addEventListener("click",
 	function(event) {
-		// event.target l'elemnto del dom su cui ho cliccato
+		// event.target l'elemento del dom su cui ho cliccato
 		// mi salvo il numero della casella
 		var numeroCliccato = parseInt(event.target.innerHTML);
 		// se il numero cliccato è presente nell'array delle bombe, hai perso! il punteggio 
